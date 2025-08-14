@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root{
+  --bg: #fbfdff;
+  --card: #ffffff;
+  --muted: #6b7280;
+}
+
+html,body,#root{
+  height:100%;
+}
+
+html{
+  scroll-behavior: smooth;
+}
+
+body{
+  @apply bg-soft text-primary font-sans;
+  background: linear-gradient(180deg, #fbfdff 0%, #f1f7fb 100%);
+}
+
+/* gentle container */
+.container {
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+/* small utilities */
+.header-shadow{
+  box-shadow: 0 6px 20px rgba(2,6,23,0.08);
+}
+
+.cta-glow{
+  transition: transform .12s ease, box-shadow .12s ease;
+}
+.cta-glow:hover{
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(14,165,164,0.16);
+}
+
+.card {
+  background: var(--card);
+  border-radius: 12px;
+  padding: 1.25rem;
+}
