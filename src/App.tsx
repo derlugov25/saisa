@@ -142,10 +142,10 @@ export default function App(){
               <div className="bg-white border-2 border-accent/20 p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-200 text-center">
                 <h3 className="text-gray-800 font-bold text-lg mb-3">I have an idea / concept</h3>
                 <p className="text-gray-600 text-sm mb-4">Early stage? Start with our quick concept form.</p>
-                <a
-                  href="https://forms.gle/CONCEPT_FORM_ID"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <a 
+                  href="https://docs.google.com/forms/d/e/1FAIpQLSfP2WGj-JnVhgKYG6vPBdDH0BaXrq5dIzJoiVckDbPcftHujQ/viewform" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
                   className="inline-block bg-accent text-white font-semibold px-6 py-3 rounded-lg hover:bg-accent/90 transition-colors duration-200 shadow-sm"
                 >
                   Submit Concept →
