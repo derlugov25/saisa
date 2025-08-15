@@ -8,7 +8,7 @@ module.exports = {
       extend: {
         colors: {
           primary: '#0f172a', // dark slate
-          accent: '#0ea5a4', // teal
+          accent: '#2a708a', // темно-сине-зеленый цвет
           soft: '#f8fafc' // background
         },
         fontFamily: {

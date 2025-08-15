@@ -23,7 +23,7 @@ export default function App(){
       <header className="w-full border-b border-transparent header-shadow bg-white/60 backdrop-blur sticky top-0 z-30">
         <div className="container flex items-center justify-between py-4">
           <div className="flex items-center gap-3">
-            <div className="rounded-md bg-gradient-to-r from-accent to-[#7dd3fc] p-2">
+            <div className="rounded-md bg-accent p-2">
               <span className="font-extrabold text-xl text-white">SAISA</span>
             </div>
             <div>
@@ -47,7 +47,10 @@ export default function App(){
       <main className="py-14">
         <div className="container grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
           <section>
-            <h1 className="text-4xl md:text-5xl font-extrabold leading-tight mb-2">Launch Global. Build in AI.</h1>
+            <h1 className="text-4xl md:text-5xl font-extrabold leading-tight mb-2">
+              <span className="block">Launch Global.</span>
+              <span className="block">Build in AI.</span>
+            </h1>
             
             
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
@@ -74,7 +77,7 @@ export default function App(){
         </div>
 
         <section id="approach" className="container mt-20 scroll-mt-24">
-          <h2 className="text-2xl font-bold mb-6">What founders get in 90 days</h2>
+          <h2 className="text-2xl font-bold mb-6 text-center">What founders get in 90 days</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {sprints.map((s) => (
               <div key={s.title} className="card">
@@ -86,14 +89,14 @@ export default function App(){
         </section>
 
         <section id="about" className="container mt-16 scroll-mt-24">
-          <h2 className="text-2xl font-bold mb-4">About SAISA</h2>
-          <p className="text-muted max-w-3xl">
+          <h2 className="text-2xl font-bold mb-4 text-center">About SAISA</h2>
+          <p className="text-muted max-w-3xl mx-auto text-center">
             SAISA — Students AI Startup Accelerator. Your bridge from Eastern Europe and Central Asia to global AI markets: compliant setup, product and GTM sprints, user interviews, warm investor intros—six months of progress in six weeks. We accelerate AI founders through three intensive sprints: validate your thesis with global customers, ship your MVP with proven tech stack, and secure investor meetings through our network.
           </p>
         </section>
 
         <section id="faq" className="container mt-16 scroll-mt-24">
-          <h2 className="text-2xl font-bold mb-6">FAQ</h2>
+          <h2 className="text-2xl font-bold mb-6 text-center">FAQ</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="card">
               <h3 className="font-semibold text-lg mb-2">When does the program start?</h3>
@@ -126,7 +129,7 @@ export default function App(){
           <div className="flex flex-col items-center">
 
             <div className="space-y-4 max-w-md">
-              <div className="bg-gradient-to-r from-accent to-[#7dd3fc] p-6 rounded-xl shadow-lg text-center">
+              <div className="bg-accent p-6 rounded-xl shadow-lg text-center">
                 <h3 className="text-white font-bold text-lg mb-3">I have a project</h3>
                 <p className="text-white/90 text-sm mb-4">Ready to scale? Fill out our detailed application form.</p>
                 <a
