@@ -59,6 +59,10 @@ export default function App(){
                 <div className="text-sm text-muted">Avg Time to Market</div>
                 <div className="text-xl font-bold">90 days</div>
               </div>
+              <div className="card">
+                <div className="text-sm text-muted">Next Cohort</div>
+                <div className="text-xl font-bold">Nov 1, 2025</div>
+              </div>
             </div>
           </section>
 
