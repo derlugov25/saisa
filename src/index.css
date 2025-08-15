@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root{
-  --bg: #fbfdff;
+  --bg: #fafafa;
   --card: #ffffff;
   --muted: #6b7280;
 }
@@ -18,29 +18,48 @@ html{
 
 body{
   @apply bg-soft text-primary font-sans;
-  background: linear-gradient(180deg, #fbfdff 0%, #f1f7fb 100%);
+  background: linear-gradient(135deg, #f8fafc 0%, #ffffff 50%, #f1f5f9 100%);
 }
 
-/* gentle container */
+/* fluid container */
 .container {
-  max-width: 1100px;
+  max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 
-/* small utilities */
+/* subtle header */
 .header-shadow{
-  box-shadow: 0 6px 20px rgba(2,6,23,0.08);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.03);
 }
 
+/* smooth interactions */
 .cta-glow{
-  transition: transform .12s ease, box-shadow .12s ease;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .cta-glow:hover{
-  transform: translateY(-3px);
-  box-shadow: 0 10px 30px rgba(14,165,164,0.16);
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(42,112,138,0.3);
+}
+
+/* parallax effect for hero section */
+.parallax-section {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+/* glass morphism effect */
+.glass-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
 .card {

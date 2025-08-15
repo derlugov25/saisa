@@ -44,54 +44,62 @@ export default function App(){
         </div>
       </header>
 
-      <main className="py-14">
-        <div className="container grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-          <section>
-            <h1 className="text-4xl md:text-5xl font-extrabold leading-tight mb-2">
-              <span className="block">Launch Global.</span>
-              <span className="block">Build in AI.</span>
-            </h1>
-            
-            
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-              <a href="#contact" className="w-full sm:w-auto text-center px-6 py-3 rounded-lg bg-accent text-white font-semibold cta-glow">Apply now</a>
-            </div>
-
-            <div className="mt-8 flex gap-6">
-              <div className="card">
-                <div className="text-sm text-muted">Avg Time to Market</div>
-                <div className="text-xl font-bold">90 days</div>
+      <main className="py-8">
+        <div className="bg-gradient-to-br from-gray-300 via-gray-200 to-white text-gray-800 py-12 -mx-4 px-4">
+          <div className="container">
+            <div className="max-w-4xl mx-auto text-center">
+              <h1 className="text-5xl md:text-6xl font-bold leading-tight mb-6 text-gray-900">
+                <span className="block">Launch Global.</span>
+                <span className="block">Build in AI.</span>
+              </h1>
+              
+              <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
+                SAISA is your bridge from Eastern Europe and Central Asia to global AI markets: compliant setup, product and GTM sprints, user interviews, warm investor intros—six months of progress in six weeks.
+              </p>
+              
+              <div className="flex flex-col sm:flex-row gap-6 justify-center mb-8">
+                <a href="#contact" className="w-full sm:w-auto text-center px-10 py-4 bg-accent text-white font-semibold rounded-lg hover:bg-accent/90 transition-all duration-300 hover:shadow-lg text-lg">Apply now</a>
               </div>
-              <div className="card">
-                <div className="text-sm text-muted">Next Cohort</div>
-                <div className="text-xl font-bold">Nov 1, 2025</div>
+
+              <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 mb-12 border border-gray-200 shadow-lg">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                  <div className="text-center">
+                    <div className="text-3xl font-bold text-accent mb-2">90</div>
+                    <div className="text-gray-600">Days to Market</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-3xl font-bold text-accent mb-2">Nov 1, 2025</div>
+                    <div className="text-gray-600">Next cohort</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-3xl font-bold text-accent mb-2">Global</div>
+                    <div className="text-gray-600">Market Access</div>
+                  </div>
+                </div>
               </div>
             </div>
-          </section>
-
-          <aside className="">
-            <div className="rounded-2xl overflow-hidden shadow-lg">
-              <img src="https://www.deeptechnology.ai/wp-content/uploads/2022/03/ai.png" alt="AI" className="w-full h-56 sm:h-72 md:h-80 object-cover"/>
-            </div>
-          </aside>
+          </div>
         </div>
 
-        <section id="approach" className="container mt-20 scroll-mt-24">
-          <h2 className="text-2xl font-bold mb-6 text-center">What founders get in 90 days</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {sprints.map((s) => (
-              <div key={s.title} className="card">
-                <h3 className="font-semibold text-lg mb-2">{s.title}</h3>
-                <p className="text-sm text-muted">{s.desc}</p>
-              </div>
-            ))}
+        {/* Секция со спринтами на белом фоне */}
+        <div className="container py-12">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-xl font-bold mb-8 text-gray-900 text-center">What founders get in 90 days</h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {sprints.map((s) => (
+                <div key={s.title} className="text-center">
+                  <h3 className="font-semibold text-lg mb-3 text-gray-900">{s.title}</h3>
+                  <p className="text-gray-600 leading-relaxed">{s.desc}</p>
+                </div>
+              ))}
+            </div>
           </div>
-        </section>
+        </div>
 
         <section id="about" className="container mt-16 scroll-mt-24">
           <h2 className="text-2xl font-bold mb-4 text-center">About SAISA</h2>
-          <p className="text-muted max-w-3xl mx-auto text-center">
-            SAISA — Students AI Startup Accelerator. Your bridge from Eastern Europe and Central Asia to global AI markets: compliant setup, product and GTM sprints, user interviews, warm investor intros—six months of progress in six weeks. We accelerate AI founders through three intensive sprints: validate your thesis with global customers, ship your MVP with proven tech stack, and secure investor meetings through our network.
+          <p className="text-muted max-w-4xl mx-auto text-center leading-relaxed">
+            We turn research into revenue with you: relocate, incorporate, build and ship, talk to customers, and fundraise—co-building AI companies from Eastern Europe and Central Asia for global markets. We partner with founders from the region to co-build global-first AI startups with clean relocation and incorporation, focused product and GTM sprints, customer pipelines, and fundraising support that compound into traction quickly.
           </p>
         </section>
 
