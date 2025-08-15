@@ -27,8 +27,7 @@ export default function App(){
               <span className="font-extrabold text-xl text-white">SAISA</span>
             </div>
             <div>
-              <div className="text-sm font-semibold">SAISA — Students AI Startup Accelerator</div>
-              <div className="text-xs text-muted">AI Startup Accelerator</div>
+              <div className="text-sm font-semibold">AI Startup Accelerator</div>
             </div>
           </div>
 
@@ -48,7 +47,8 @@ export default function App(){
       <main className="py-14">
         <div className="container grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
           <section>
-            <h1 className="text-4xl md:text-5xl font-extrabold leading-tight mb-4">Launch Global. Build in AI.</h1>
+            <h1 className="text-4xl md:text-5xl font-extrabold leading-tight mb-2">Launch Global. Build in AI.</h1>
+            <p className="text-sm text-muted mb-6">SAISA — Students AI Startup Accelerator</p>
 
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
               <a href="#contact" className="w-full sm:w-auto text-center px-6 py-3 rounded-lg bg-accent text-white font-semibold cta-glow">Apply now</a>
@@ -124,35 +124,35 @@ export default function App(){
 
         <section id="contact" className="container mt-16 mb-24 scroll-mt-24">
           <div className="flex flex-col items-center">
-            
+
             <div className="space-y-4 max-w-md">
               <div className="bg-gradient-to-r from-accent to-[#7dd3fc] p-6 rounded-xl shadow-lg text-center">
                 <h3 className="text-white font-bold text-lg mb-3">I have a project</h3>
                 <p className="text-white/90 text-sm mb-4">Ready to scale? Fill out our detailed application form.</p>
-                <a 
-                  href={GOOGLE_FORM_URL} 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
+                <a
+                  href={GOOGLE_FORM_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-block bg-white text-accent font-semibold px-6 py-3 rounded-lg hover:bg-gray-50 transition-colors duration-200 shadow-sm"
                 >
                   Apply Now →
                 </a>
               </div>
-              
+
               <div className="bg-white border-2 border-accent/20 p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-200 text-center">
                 <h3 className="text-gray-800 font-bold text-lg mb-3">I have an idea / concept</h3>
                 <p className="text-gray-600 text-sm mb-4">Early stage? Start with our quick concept form.</p>
-                <a 
-                  href="https://forms.gle/CONCEPT_FORM_ID" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
+                <a
+                  href="https://forms.gle/CONCEPT_FORM_ID"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-block bg-accent text-white font-semibold px-6 py-3 rounded-lg hover:bg-accent/90 transition-colors duration-200 shadow-sm"
                 >
                   Submit Concept →
                 </a>
               </div>
             </div>
-            
+
           </div>
         </section>
       </main>
