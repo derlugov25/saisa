@@ -48,8 +48,8 @@ export default function App(){
         <div className="container grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
           <section>
             <h1 className="text-4xl md:text-5xl font-extrabold leading-tight mb-2">Launch Global. Build in AI.</h1>
-            <p className="text-sm text-muted mb-6">SAISA — Students AI Startup Accelerator</p>
-
+            
+            
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
               <a href="#contact" className="w-full sm:w-auto text-center px-6 py-3 rounded-lg bg-accent text-white font-semibold cta-glow">Apply now</a>
             </div>
@@ -88,7 +88,7 @@ export default function App(){
         <section id="about" className="container mt-16 scroll-mt-24">
           <h2 className="text-2xl font-bold mb-4">About SAISA</h2>
           <p className="text-muted max-w-3xl">
-            Your bridge from Eastern Europe and Central Asia to global AI markets: compliant setup, product and GTM sprints, user interviews, warm investor intros—six months of progress in six weeks. We accelerate AI founders through three intensive sprints: validate your thesis with global customers, ship your MVP with proven tech stack, and secure investor meetings through our network.
+            SAISA — Students AI Startup Accelerator. Your bridge from Eastern Europe and Central Asia to global AI markets: compliant setup, product and GTM sprints, user interviews, warm investor intros—six months of progress in six weeks. We accelerate AI founders through three intensive sprints: validate your thesis with global customers, ship your MVP with proven tech stack, and secure investor meetings through our network.
           </p>
         </section>
 
