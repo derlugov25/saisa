@@ -121,7 +121,7 @@ export default function App(){
         <div className="bg-gradient-to-br from-gray-300 via-gray-200 to-white text-gray-800 py-16 sm:py-20 px-4">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-8 text-gray-900">
+              <h1 className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-8 text-gray-900">
                 <span className="block">Launch Global.</span>
                 <span className="block">Build in AI.</span>
               </h1>
