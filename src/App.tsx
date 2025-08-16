@@ -222,7 +222,7 @@ export default function App(){
         </section>
       </main>
 
-      <footer className="py-6">
+      <footer className="py-6 bg-gray-200">
         <div className="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4">
           <div className="text-sm">© {new Date().getFullYear()} SAISA — Students AI Startup Accelerator</div>
           <div className="text-center">
