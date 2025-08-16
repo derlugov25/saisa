@@ -83,13 +83,13 @@ export default function App(){
 
           <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
             <a href="#about" className="hover:underline">About</a>
-            <a href="#approach" className="hover:underline">Approach</a>
+            <a href="#faq" className="hover:underline">Approach</a>
             <a href="#contact" className="hover:underline">Contact</a>
           </nav>
 
           <div className="md:hidden flex items-center gap-6">
             <a href="#about" className="text-base font-medium hover:underline px-2 py-1">About</a>
-            <a href="#approach" className="text-base font-medium hover:underline px-2 py-1">Approach</a>
+            <a href="#faq" className="text-base font-medium hover:underline px-2 py-1">Approach</a>
             <a href="#contact" className="text-base font-medium hover:underline px-2 py-1">Contact</a>
           </div>
         </div>
