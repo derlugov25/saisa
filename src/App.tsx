@@ -1,5 +1,16 @@
 import React from 'react'
 
+// CSS для скрытия scrollbar
+const scrollbarHideStyles = `
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+`
+
 const sprints = [
   {
     title: 'Sprint 1 — Team & Thesis',
@@ -46,7 +57,7 @@ const FAQItem = ({ question, answer }: { question: string; answer: string }) => 
   const [isOpen, setIsOpen] = React.useState(false)
   
   return (
-    <div className="border border-gray-200 overflow-hidden">
+    <div className="overflow-hidden">
       <button
         className="w-full px-4 sm:px-6 py-4 text-left bg-white hover:bg-gray-50 transition-colors duration-200 flex items-center justify-between"
         onClick={() => setIsOpen(!isOpen)}
@@ -57,7 +68,7 @@ const FAQItem = ({ question, answer }: { question: string; answer: string }) => 
         </span>
       </button>
       {isOpen && (
-        <div className="px-4 sm:px-6 py-4 bg-gray-50 border-t border-gray-200">
+        <div className="px-4 sm:px-6 py-4 bg-gray-50">
           <p className="text-gray-600 text-sm sm:text-base">{answer}</p>
         </div>
       )}
@@ -68,9 +79,20 @@ const FAQItem = ({ question, answer }: { question: string; answer: string }) => 
 const GOOGLE_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSeCWYiYOMafUpvVvxuHUb3dzh9YRV8btd2KcVDFHJ_AfHEYvg/viewform'
 
 export default function App(){
+  React.useEffect(() => {
+    // Внедряем стили для скрытия scrollbar
+    const style = document.createElement('style')
+    style.textContent = scrollbarHideStyles
+    document.head.appendChild(style)
+    
+    return () => {
+      document.head.removeChild(style)
+    }
+  }, [])
+
   return (
-    <div className="min-h-screen bg-soft text-primary overflow-x-hidden">
-      <header className="w-full border-b border-transparent header-shadow bg-white/60 backdrop-blur sticky top-0 z-30">
+    <div className="min-h-screen bg-soft text-primary overflow-x-hidden scrollbar-hide">
+      <header className="w-full bg-white/60 backdrop-blur sticky top-0 z-30">
         <div className="container flex items-center justify-between py-4">
           <div className="flex items-center gap-3">
             <div className="bg-accent p-2">
@@ -95,20 +117,20 @@ export default function App(){
         </div>
       </header>
 
-      <main className="py-8">
-        <div className="bg-gradient-to-br from-gray-300 via-gray-200 to-white text-gray-800 py-8 sm:py-12 px-4">
+      <main>
+        <div className="bg-gradient-to-br from-gray-300 via-gray-200 to-white text-gray-800 py-16 sm:py-20 px-4">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-gray-900">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-8 text-gray-900">
                 <span className="block">Launch Global.</span>
                 <span className="block">Build in AI.</span>
               </h1>
               
-              <p className="text-base sm:text-lg md:text-xl text-gray-600 mb-6 sm:mb-8 max-w-3xl mx-auto leading-relaxed px-4">
+              <p className="text-base sm:text-lg md:text-xl text-gray-600 mb-10 sm:mb-12 max-w-3xl mx-auto leading-relaxed px-4">
                 SAISA is your bridge from Eastern Europe and Central Asia to global AI markets: compliant setup, product and GTM sprints, user interviews, warm investor intros—six months of progress in six weeks.
               </p>
               
-              <div className="flex flex-col sm:flex-row gap-6 justify-center mb-8">
+                              <div className="flex flex-col sm:flex-row gap-6 justify-center mb-12">
                 <a href="#contact" className="w-full sm:w-auto text-center px-6 sm:px-8 md:px-10 py-3 sm:py-4 bg-accent text-white font-semibold hover:bg-accent/90 transition-all duration-300 hover:shadow-lg text-base sm:text-lg">Apply now</a>
               </div>
 
@@ -200,7 +222,7 @@ export default function App(){
         </section>
       </main>
 
-      <footer className="border-t py-6">
+      <footer className="py-6">
         <div className="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4">
           <div className="text-sm">© {new Date().getFullYear()} SAISA — Students AI Startup Accelerator</div>
           <div className="text-center">
