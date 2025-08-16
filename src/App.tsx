@@ -88,7 +88,10 @@ export default function App(){
             <a href="#contact" className="px-4 py-2 bg-accent text-white font-semibold cta-glow">Apply</a>
           </nav>
 
-          <div className="md:hidden">
+          <div className="md:hidden flex items-center gap-4">
+            <a href="#about" className="text-sm font-medium hover:underline">About</a>
+            <a href="#approach" className="text-sm font-medium hover:underline">Approach</a>
+            <a href="#contact" className="text-sm font-medium hover:underline">Contact</a>
             <a href="#contact" className="px-3 py-2 bg-accent text-white font-semibold">Apply</a>
           </div>
         </div>
