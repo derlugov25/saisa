@@ -87,29 +87,29 @@ export default function App(){
             <a href="#contact" className="hover:underline">Contact</a>
           </nav>
 
-          <div className="md:hidden flex items-center gap-6">
-            <a href="#about" className="text-base font-medium hover:underline px-2 py-1">About</a>
-            <a href="#faq" className="text-base font-medium hover:underline px-2 py-1">Approach</a>
-            <a href="#contact" className="text-base font-medium hover:underline px-2 py-1">Contact</a>
+          <div className="md:hidden flex items-center gap-4">
+            <a href="#about" className="text-sm font-medium hover:underline px-1 py-1">About</a>
+            <a href="#faq" className="text-sm font-medium hover:underline px-1 py-1">Approach</a>
+            <a href="#contact" className="text-sm font-medium hover:underline px-1 py-1">Contact</a>
           </div>
         </div>
       </header>
 
       <main className="py-8">
-        <div className="bg-gradient-to-br from-gray-300 via-gray-200 to-white text-gray-800 py-12 -mx-4 px-4">
+        <div className="bg-gradient-to-br from-gray-300 via-gray-200 to-white text-gray-800 py-8 sm:py-12 -mx-4 px-4">
           <div className="container">
             <div className="max-w-4xl mx-auto text-center">
-              <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-6 text-gray-900">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-gray-900">
                 <span className="block">Launch Global.</span>
                 <span className="block">Build in AI.</span>
               </h1>
               
-              <p className="text-lg sm:text-xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed px-4">
+              <p className="text-base sm:text-lg md:text-xl text-gray-600 mb-6 sm:mb-8 max-w-3xl mx-auto leading-relaxed px-4">
                 SAISA is your bridge from Eastern Europe and Central Asia to global AI markets: compliant setup, product and GTM sprints, user interviews, warm investor intros—six months of progress in six weeks.
               </p>
               
               <div className="flex flex-col sm:flex-row gap-6 justify-center mb-8">
-                <a href="#contact" className="w-full sm:w-auto text-center px-8 sm:px-10 py-4 bg-accent text-white font-semibold hover:bg-accent/90 transition-all duration-300 hover:shadow-lg text-lg">Apply now</a>
+                <a href="#contact" className="w-full sm:w-auto text-center px-6 sm:px-8 md:px-10 py-3 sm:py-4 bg-accent text-white font-semibold hover:bg-accent/90 transition-all duration-300 hover:shadow-lg text-base sm:text-lg">Apply now</a>
               </div>
 
               <div className="bg-white/80 backdrop-blur-sm p-8 mb-12">
@@ -133,7 +133,7 @@ export default function App(){
         </div>
 
         {/* Секция со спринтами */}
-        <div className="container py-12">
+        <div className="container py-8 sm:py-12">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-2xl font-bold mb-8 text-gray-900 text-center">What founders get in 90 days</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
@@ -147,14 +147,14 @@ export default function App(){
           </div>
         </div>
 
-        <section id="about" className="container mt-16 scroll-mt-24">
+        <section id="about" className="container mt-12 sm:mt-16 scroll-mt-24">
           <h2 className="text-2xl font-bold mb-8 text-center">About SAISA</h2>
           <p className="text-muted max-w-4xl mx-auto text-center leading-relaxed">
             We turn research into revenue with you: relocate, incorporate, build and ship, talk to customers, and fundraise—co-building AI companies from Eastern Europe and Central Asia for global markets. We partner with founders from the region to co-build global-first AI startups with clean relocation and incorporation, focused product and GTM sprints, customer pipelines, and fundraising support that compound into traction quickly.
           </p>
         </section>
 
-        <section id="faq" className="container mt-16 scroll-mt-24">
+        <section id="faq" className="container mt-12 sm:mt-16 scroll-mt-24">
           <h2 className="text-2xl font-bold mb-8 text-center">FAQ</h2>
           <div className="max-w-4xl mx-auto space-y-4 px-4">
             {faqData.map((item, index) => (
@@ -163,7 +163,7 @@ export default function App(){
           </div>
         </section>
 
-        <section id="contact" className="container mt-16 mb-24 scroll-mt-24">
+        <section id="contact" className="container mt-12 sm:mt-16 mb-16 sm:mb-24 scroll-mt-24">
           <div className="text-center max-w-4xl mx-auto">
             <h2 className="text-2xl font-bold mb-8 text-gray-900">
               Seize the opportunity to lead the AI revolution
