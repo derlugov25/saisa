@@ -48,17 +48,17 @@ const FAQItem = ({ question, answer }: { question: string; answer: string }) => 
   return (
     <div className="border border-gray-200 overflow-hidden">
       <button
-        className="w-full px-6 py-4 text-left bg-white hover:bg-gray-50 transition-colors duration-200 flex items-center justify-between"
+        className="w-full px-4 sm:px-6 py-4 text-left bg-white hover:bg-gray-50 transition-colors duration-200 flex items-center justify-between"
         onClick={() => setIsOpen(!isOpen)}
       >
-        <span className="font-semibold text-gray-900">{question}</span>
+        <span className="font-semibold text-gray-900 text-sm sm:text-base">{question}</span>
         <span className={`text-accent transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}>
           ▼
         </span>
       </button>
       {isOpen && (
-        <div className="px-6 py-4 bg-gray-50 border-t border-gray-200">
-          <p className="text-gray-600">{answer}</p>
+        <div className="px-4 sm:px-6 py-4 bg-gray-50 border-t border-gray-200">
+          <p className="text-gray-600 text-sm sm:text-base">{answer}</p>
         </div>
       )}
     </div>
@@ -87,10 +87,10 @@ export default function App(){
             <a href="#contact" className="hover:underline">Contact</a>
           </nav>
 
-          <div className="md:hidden flex items-center gap-4">
-            <a href="#about" className="text-sm font-medium hover:underline">About</a>
-            <a href="#approach" className="text-sm font-medium hover:underline">Approach</a>
-            <a href="#contact" className="text-sm font-medium hover:underline">Contact</a>
+          <div className="md:hidden flex items-center gap-6">
+            <a href="#about" className="text-base font-medium hover:underline px-2 py-1">About</a>
+            <a href="#approach" className="text-base font-medium hover:underline px-2 py-1">Approach</a>
+            <a href="#contact" className="text-base font-medium hover:underline px-2 py-1">Contact</a>
           </div>
         </div>
       </header>
@@ -99,17 +99,17 @@ export default function App(){
         <div className="bg-gradient-to-br from-gray-300 via-gray-200 to-white text-gray-800 py-12 -mx-4 px-4">
           <div className="container">
             <div className="max-w-4xl mx-auto text-center">
-              <h1 className="text-5xl md:text-6xl font-bold leading-tight mb-6 text-gray-900">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-6 text-gray-900">
                 <span className="block">Launch Global.</span>
                 <span className="block">Build in AI.</span>
               </h1>
               
-              <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
+              <p className="text-lg sm:text-xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed px-4">
                 SAISA is your bridge from Eastern Europe and Central Asia to global AI markets: compliant setup, product and GTM sprints, user interviews, warm investor intros—six months of progress in six weeks.
               </p>
               
               <div className="flex flex-col sm:flex-row gap-6 justify-center mb-8">
-                <a href="#contact" className="w-full sm:w-auto text-center px-10 py-4 bg-accent text-white font-semibold hover:bg-accent/90 transition-all duration-300 hover:shadow-lg text-lg">Apply now</a>
+                <a href="#contact" className="w-full sm:w-auto text-center px-8 sm:px-10 py-4 bg-accent text-white font-semibold hover:bg-accent/90 transition-all duration-300 hover:shadow-lg text-lg">Apply now</a>
               </div>
 
               <div className="bg-white/80 backdrop-blur-sm p-8 mb-12">
@@ -136,11 +136,11 @@ export default function App(){
         <div className="container py-12">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-2xl font-bold mb-8 text-gray-900 text-center">What founders get in 90 days</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
               {sprints.map((s) => (
-                <div key={s.title} className="text-center">
+                <div key={s.title} className="text-center px-4">
                   <h3 className="font-semibold text-lg mb-3 text-gray-900">{s.title}</h3>
-                  <p className="text-gray-600 leading-relaxed">{s.desc}</p>
+                  <p className="text-gray-600 leading-relaxed text-sm sm:text-base">{s.desc}</p>
                 </div>
               ))}
             </div>
@@ -156,7 +156,7 @@ export default function App(){
 
         <section id="faq" className="container mt-16 scroll-mt-24">
           <h2 className="text-2xl font-bold mb-8 text-center">FAQ</h2>
-          <div className="max-w-4xl mx-auto space-y-4">
+          <div className="max-w-4xl mx-auto space-y-4 px-4">
             {faqData.map((item, index) => (
               <FAQItem key={index} question={item.question} answer={item.answer} />
             ))}
