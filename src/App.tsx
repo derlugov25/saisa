@@ -15,6 +15,56 @@ const sprints = [
   }
 ]
 
+const faqData = [
+  {
+    question: 'When does the program start?',
+    answer: 'Spring 2025 Batch. Rolling admissions every 6 weeks.'
+  },
+  {
+    question: 'Format & Location',
+    answer: 'Online program. Weekly demos, investor intros, global network access.'
+  },
+  {
+    question: 'Cost & Terms',
+    answer: '1% equity + 5% of raised capital. No upfront fees, no grants.'
+  },
+  {
+    question: 'Selection Criteria',
+    answer: 'AI/ML founders with global ambition. Technical skills required.'
+  },
+  {
+    question: 'Founder Commitment',
+    answer: '10-15 hrs/week: customer dev, weekly demos, investor prep.'
+  },
+  {
+    question: 'Deadlines',
+    answer: 'Apply anytime. 48hr review. Demo day every 6 weeks.'
+  }
+]
+
+const FAQItem = ({ question, answer }: { question: string; answer: string }) => {
+  const [isOpen, setIsOpen] = React.useState(false)
+  
+  return (
+    <div className="border border-gray-200 rounded-lg overflow-hidden">
+      <button
+        className="w-full px-6 py-4 text-left bg-white hover:bg-gray-50 transition-colors duration-200 flex items-center justify-between"
+        onClick={() => setIsOpen(!isOpen)}
+      >
+        <span className="font-semibold text-gray-900">{question}</span>
+        <span className={`text-accent transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}>
+          ▼
+        </span>
+      </button>
+      {isOpen && (
+        <div className="px-6 py-4 bg-gray-50 border-t border-gray-200">
+          <p className="text-gray-600">{answer}</p>
+        </div>
+      )}
+    </div>
+  )
+}
+
 const GOOGLE_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSeCWYiYOMafUpvVvxuHUb3dzh9YRV8btd2KcVDFHJ_AfHEYvg/viewform'
 
 export default function App(){
@@ -23,7 +73,7 @@ export default function App(){
       <header className="w-full border-b border-transparent header-shadow bg-white/60 backdrop-blur sticky top-0 z-30">
         <div className="container flex items-center justify-between py-4">
           <div className="flex items-center gap-3">
-            <div className="rounded-md bg-accent p-2">
+            <div className="bg-accent p-2">
               <span className="font-extrabold text-xl text-white">SAISA</span>
             </div>
             <div>
@@ -35,11 +85,11 @@ export default function App(){
             <a href="#about" className="hover:underline">About</a>
             <a href="#approach" className="hover:underline">Approach</a>
             <a href="#contact" className="hover:underline">Contact</a>
-            <a href="#contact" className="px-4 py-2 rounded-lg bg-accent text-white font-semibold cta-glow">Apply</a>
+            <a href="#contact" className="px-4 py-2 bg-accent text-white font-semibold cta-glow">Apply</a>
           </nav>
 
           <div className="md:hidden">
-            <a href="#contact" className="px-3 py-2 rounded bg-accent text-white font-semibold">Apply</a>
+            <a href="#contact" className="px-3 py-2 bg-accent text-white font-semibold">Apply</a>
           </div>
         </div>
       </header>
@@ -58,10 +108,10 @@ export default function App(){
               </p>
               
               <div className="flex flex-col sm:flex-row gap-6 justify-center mb-8">
-                <a href="#contact" className="w-full sm:w-auto text-center px-10 py-4 bg-accent text-white font-semibold rounded-lg hover:bg-accent/90 transition-all duration-300 hover:shadow-lg text-lg">Apply now</a>
+                <a href="#contact" className="w-full sm:w-auto text-center px-10 py-4 bg-accent text-white font-semibold hover:bg-accent/90 transition-all duration-300 hover:shadow-lg text-lg">Apply now</a>
               </div>
 
-              <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 mb-12 border border-gray-200 shadow-lg">
+              <div className="bg-white/80 backdrop-blur-sm p-8 mb-12">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                   <div className="text-center">
                     <div className="text-3xl font-bold text-accent mb-2">90</div>
@@ -81,10 +131,10 @@ export default function App(){
           </div>
         </div>
 
-        {/* Секция со спринтами на белом фоне */}
+        {/* Секция со спринтами */}
         <div className="container py-12">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-xl font-bold mb-8 text-gray-900 text-center">What founders get in 90 days</h2>
+            <h2 className="text-2xl font-bold mb-8 text-gray-900 text-center">What founders get in 90 days</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {sprints.map((s) => (
                 <div key={s.title} className="text-center">
@@ -97,73 +147,54 @@ export default function App(){
         </div>
 
         <section id="about" className="container mt-16 scroll-mt-24">
-          <h2 className="text-2xl font-bold mb-4 text-center">About SAISA</h2>
+          <h2 className="text-2xl font-bold mb-8 text-center">About SAISA</h2>
           <p className="text-muted max-w-4xl mx-auto text-center leading-relaxed">
             We turn research into revenue with you: relocate, incorporate, build and ship, talk to customers, and fundraise—co-building AI companies from Eastern Europe and Central Asia for global markets. We partner with founders from the region to co-build global-first AI startups with clean relocation and incorporation, focused product and GTM sprints, customer pipelines, and fundraising support that compound into traction quickly.
           </p>
         </section>
 
         <section id="faq" className="container mt-16 scroll-mt-24">
-          <h2 className="text-2xl font-bold mb-6 text-center">FAQ</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="card">
-              <h3 className="font-semibold text-lg mb-2">When does the program start?</h3>
-              <p className="text-sm text-muted">Spring 2025 Batch. Rolling admissions every 6 weeks.</p>
-            </div>
-            <div className="card">
-              <h3 className="font-semibold text-lg mb-2">Format & Location</h3>
-              <p className="text-sm text-muted">Online program. Weekly demos, investor intros, global network access.</p>
-            </div>
-            <div className="card">
-              <h3 className="font-semibold text-lg mb-2">Cost & Terms</h3>
-              <p className="text-sm text-muted">1% equity + 5% of raised capital. No upfront fees, no grants.</p>
-            </div>
-            <div className="card">
-              <h3 className="font-semibold text-lg mb-2">Selection Criteria</h3>
-              <p className="text-sm text-muted">AI/ML founders with global ambition. Technical skills required.</p>
-            </div>
-            <div className="card">
-              <h3 className="font-semibold text-lg mb-2">Founder Commitment</h3>
-              <p className="text-sm text-muted">10-15 hrs/week: customer dev, weekly demos, investor prep.</p>
-            </div>
-            <div className="card">
-              <h3 className="font-semibold text-lg mb-2">Deadlines</h3>
-              <p className="text-sm text-muted">Apply anytime. 48hr review. Demo day every 6 weeks.</p>
-            </div>
+          <h2 className="text-2xl font-bold mb-8 text-center">FAQ</h2>
+          <div className="max-w-4xl mx-auto space-y-4">
+            {faqData.map((item, index) => (
+              <FAQItem key={index} question={item.question} answer={item.answer} />
+            ))}
           </div>
         </section>
 
         <section id="contact" className="container mt-16 mb-24 scroll-mt-24">
-          <div className="flex flex-col items-center">
-
-            <div className="space-y-4 max-w-md">
-              <div className="bg-accent p-6 rounded-xl shadow-lg text-center">
-                <h3 className="text-white font-bold text-lg mb-3">I have a project</h3>
-                <p className="text-white/90 text-sm mb-4">Ready to scale? Fill out our detailed application form.</p>
+          <div className="text-center max-w-4xl mx-auto">
+            <h2 className="text-2xl font-bold mb-8 text-gray-900">
+              Seize the opportunity to lead the AI revolution
+            </h2>
+            
+            <div className="space-y-6">
+              <div className="text-center">
+                <h3 className="text-xl font-semibold mb-3 text-gray-800">I have a project</h3>
+                <p className="text-gray-600 mb-4">Ready to scale? Fill out our detailed application form.</p>
                 <a
                   href={GOOGLE_FORM_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-block bg-white text-accent font-semibold px-6 py-3 rounded-lg hover:bg-gray-50 transition-colors duration-200 shadow-sm"
+                  className="inline-block bg-accent text-white font-semibold px-8 py-3 hover:bg-accent/90 transition-colors duration-200"
                 >
                   Apply Now →
                 </a>
               </div>
 
-              <div className="bg-white border-2 border-accent/20 p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-200 text-center">
-                <h3 className="text-gray-800 font-bold text-lg mb-3">I have an idea / concept</h3>
-                <p className="text-gray-600 text-sm mb-4">Early stage? Start with our quick concept form.</p>
+              <div className="text-center">
+                <h3 className="text-xl font-semibold mb-3 text-gray-800">I have an idea / concept</h3>
+                <p className="text-gray-600 mb-4">Early stage? Start with our quick concept form.</p>
                 <a 
                   href="https://docs.google.com/forms/d/e/1FAIpQLSfP2WGj-JnVhgKYG6vPBdDH0BaXrq5dIzJoiVckDbPcftHujQ/viewform" 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className="inline-block bg-accent text-white font-semibold px-6 py-3 rounded-lg hover:bg-accent/90 transition-colors duration-200 shadow-sm"
+                  className="inline-block bg-accent text-white font-semibold px-8 py-3 hover:bg-accent/90 transition-colors duration-200"
                 >
                   Submit Concept →
                 </a>
               </div>
             </div>
-
           </div>
         </section>
       </main>
