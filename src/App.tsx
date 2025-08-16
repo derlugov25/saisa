@@ -69,7 +69,7 @@ const GOOGLE_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSeCWYiYOMafUpv
 
 export default function App(){
   return (
-    <div className="min-h-screen bg-soft text-primary">
+    <div className="min-h-screen bg-soft text-primary overflow-x-hidden">
       <header className="w-full border-b border-transparent header-shadow bg-white/60 backdrop-blur sticky top-0 z-30">
         <div className="container flex items-center justify-between py-4">
           <div className="flex items-center gap-3">
@@ -87,17 +87,17 @@ export default function App(){
             <a href="#contact" className="hover:underline">Contact</a>
           </nav>
 
-          <div className="md:hidden flex items-center gap-4">
-            <a href="#about" className="text-sm font-medium hover:underline px-1 py-1">About</a>
-            <a href="#faq" className="text-sm font-medium hover:underline px-1 py-1">Approach</a>
-            <a href="#contact" className="text-sm font-medium hover:underline px-1 py-1">Contact</a>
+          <div className="md:hidden flex items-center gap-2">
+            <a href="#about" className="text-xs font-medium hover:underline">About</a>
+            <a href="#faq" className="text-xs font-medium hover:underline">Approach</a>
+            <a href="#contact" className="text-xs font-medium hover:underline">Contact</a>
           </div>
         </div>
       </header>
 
       <main className="py-8">
-        <div className="bg-gradient-to-br from-gray-300 via-gray-200 to-white text-gray-800 py-8 sm:py-12 -mx-4 px-4">
-          <div className="container">
+        <div className="bg-gradient-to-br from-gray-300 via-gray-200 to-white text-gray-800 py-8 sm:py-12 px-4">
+          <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center">
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-gray-900">
                 <span className="block">Launch Global.</span>
@@ -133,7 +133,7 @@ export default function App(){
         </div>
 
         {/* Секция со спринтами */}
-        <div className="container py-8 sm:py-12">
+        <div className="container mx-auto px-4 py-8 sm:py-12">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-2xl font-bold mb-8 text-gray-900 text-center">What founders get in 90 days</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
@@ -147,14 +147,14 @@ export default function App(){
           </div>
         </div>
 
-        <section id="about" className="container mt-12 sm:mt-16 scroll-mt-24">
+        <section id="about" className="container mx-auto px-4 mt-12 sm:mt-16 scroll-mt-24">
           <h2 className="text-2xl font-bold mb-8 text-center">About SAISA</h2>
           <p className="text-muted max-w-4xl mx-auto text-center leading-relaxed">
             We turn research into revenue with you: relocate, incorporate, build and ship, talk to customers, and fundraise—co-building AI companies from Eastern Europe and Central Asia for global markets. We partner with founders from the region to co-build global-first AI startups with clean relocation and incorporation, focused product and GTM sprints, customer pipelines, and fundraising support that compound into traction quickly.
           </p>
         </section>
 
-        <section id="faq" className="container mt-12 sm:mt-16 scroll-mt-24">
+        <section id="faq" className="container mx-auto px-4 mt-12 sm:mt-16 scroll-mt-24">
           <h2 className="text-2xl font-bold mb-8 text-center">FAQ</h2>
           <div className="max-w-4xl mx-auto space-y-4 px-4">
             {faqData.map((item, index) => (
@@ -163,7 +163,7 @@ export default function App(){
           </div>
         </section>
 
-        <section id="contact" className="container mt-12 sm:mt-16 mb-16 sm:mb-24 scroll-mt-24">
+        <section id="contact" className="container mx-auto px-4 mt-12 sm:mt-16 mb-16 sm:mb-24 scroll-mt-24">
           <div className="text-center max-w-4xl mx-auto">
             <h2 className="text-2xl font-bold mb-8 text-gray-900">
               Seize the opportunity to lead the AI revolution
@@ -201,7 +201,7 @@ export default function App(){
       </main>
 
       <footer className="border-t py-6">
-        <div className="container flex flex-col md:flex-row justify-between items-center gap-4">
+        <div className="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4">
           <div className="text-sm">© {new Date().getFullYear()} SAISA — Students AI Startup Accelerator</div>
           <div className="text-center">
             <p className="text-sm text-muted mb-2">Email: <a href="mailto:hello@saisa.ai" className="text-accent">hello@saisa.ai</a></p>
