@@ -162,6 +162,8 @@ const TypewriterText = ({ text, delay = 0, isVisible = false }: { text: string; 
   const [displayText, setDisplayText] = React.useState('')
   const [currentIndex, setCurrentIndex] = React.useState(0)
   const [isAnimating, setIsAnimating] = React.useState(false)
+  const [hasInitialized, setHasInitialized] = React.useState(false)
+  const [wasVisible, setWasVisible] = React.useState(false)
 
   const startAnimation = () => {
     setIsAnimating(true)
@@ -169,21 +171,23 @@ const TypewriterText = ({ text, delay = 0, isVisible = false }: { text: string; 
     setCurrentIndex(0)
   }
 
-  // Запуск анимации при загрузке
+  // Запуск анимации только при переходе из невидимого в видимое
   React.useEffect(() => {
-    const timer = setTimeout(() => {
-      startAnimation()
-    }, 1000)
-    
-    return () => clearTimeout(timer)
-  }, [])
-
-  // Перезапуск анимации при появлении в поле зрения
-  React.useEffect(() => {
-    if (isVisible && !isAnimating) {
-      startAnimation()
+    if (isVisible && !wasVisible && !isAnimating) {
+      if (!hasInitialized) {
+        // Первый запуск с задержкой
+        const timer = setTimeout(() => {
+          startAnimation()
+          setHasInitialized(true)
+        }, 1000)
+        return () => clearTimeout(timer)
+      } else {
+        // Последующие запуски без задержки
+        startAnimation()
+      }
     }
-  }, [isVisible])
+    setWasVisible(isVisible)
+  }, [isVisible, wasVisible, isAnimating, hasInitialized])
 
   React.useEffect(() => {
     if (currentIndex < text.length && isAnimating) {
