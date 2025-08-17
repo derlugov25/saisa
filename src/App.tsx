@@ -599,11 +599,6 @@ export default function App(){
                   
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <div className="bg-white/80 backdrop-blur-sm p-8 rounded-2xl shadow-lg border border-white/20 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-                      <div className="w-16 h-16 mx-auto mb-6 bg-accent rounded-2xl flex items-center justify-center shadow-lg">
-                        <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
-                      </div>
                       <h3 className="text-xl font-semibold mb-3 text-gray-800">I have a project</h3>
                       <p className="text-gray-600 mb-6">Ready to scale? Fill out our detailed application form.</p>
                       <a
@@ -617,11 +612,6 @@ export default function App(){
                     </div>
 
                     <div className="bg-white/80 backdrop-blur-sm p-8 rounded-2xl shadow-lg border border-white/20 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-                      <div className="w-16 h-16 mx-auto mb-6 bg-accent rounded-2xl flex items-center justify-center shadow-lg">
-                        <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-                        </svg>
-                      </div>
                       <h3 className="text-xl font-semibold mb-3 text-gray-800">I have an idea / concept</h3>
                       <p className="text-gray-600 mb-6">Early stage? Start with our quick concept form.</p>
                       <a 
@@ -645,9 +635,6 @@ export default function App(){
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
             <div className="text-center md:text-left">
-              <div className="bg-accent p-3 rounded-xl inline-block mb-4">
-                <span className="font-extrabold text-xl text-white">SAISA</span>
-              </div>
               <p className="text-gray-600 text-sm leading-relaxed">
                 Your bridge from Eastern Europe and Central Asia to global AI markets: compliant setup, product and GTM sprints, user interviews, warm investor intros—six months of progress in six weeks.
               </p>
