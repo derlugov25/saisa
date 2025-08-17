@@ -1,6 +1,6 @@
 import React from 'react'
 
-// CSS для скрытия scrollbar
+// CSS для скрытия scrollbar и анимации печатной машинки
 const scrollbarHideStyles = `
   .scrollbar-hide {
     -ms-overflow-style: none;
@@ -8,6 +8,67 @@ const scrollbarHideStyles = `
   }
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
+  }
+  
+  .typewriter {
+    overflow: hidden;
+    border-right: 2px solid #1f2937;
+    white-space: nowrap;
+    animation: typing 3s steps(40, end), blink-caret 0.75s step-end infinite;
+  }
+  
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+  }
+  
+  @keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: #1f2937 }
+  }
+  
+  .fade-in-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+  }
+  
+  .fade-in-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .fade-in-scale {
+    opacity: 0;
+    transform: scale(0.9) translateY(20px);
+    transition: all 0.6s ease-out;
+  }
+  
+  .fade-in-scale.visible {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+  
+  .slide-in-left {
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: all 0.7s ease-out;
+  }
+  
+  .slide-in-left.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  
+  .slide-in-right {
+    opacity: 0;
+    transform: translateX(30px);
+    transition: all 0.7s ease-out;
+  }
+  
+  .slide-in-right.visible {
+    opacity: 1;
+    transform: translateX(0);
   }
 `
 
@@ -78,6 +139,73 @@ const FAQItem = ({ question, answer }: { question: string; answer: string }) => 
 
 const GOOGLE_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSeCWYiYOMafUpvVvxuHUb3dzh9YRV8btd2KcVDFHJ_AfHEYvg/viewform'
 
+const useIntersectionObserver = (options = {}) => {
+  const [isVisible, setIsVisible] = React.useState(false)
+  const elementRef = React.useRef<HTMLDivElement>(null)
+
+  React.useEffect(() => {
+    const observer = new IntersectionObserver(([entry]) => {
+      setIsVisible(entry.isIntersecting)
+    }, { threshold: 0.1, ...options })
+
+    if (elementRef.current) {
+      observer.observe(elementRef.current)
+    }
+
+    return () => observer.disconnect()
+  }, [options])
+
+  return [elementRef, isVisible] as const
+}
+
+const TypewriterText = ({ text, delay = 0, isVisible = false }: { text: string; delay?: number; isVisible?: boolean }) => {
+  const [displayText, setDisplayText] = React.useState('')
+  const [currentIndex, setCurrentIndex] = React.useState(0)
+  const [isAnimating, setIsAnimating] = React.useState(false)
+
+  const startAnimation = () => {
+    setIsAnimating(true)
+    setDisplayText('')
+    setCurrentIndex(0)
+  }
+
+  // Запуск анимации при загрузке
+  React.useEffect(() => {
+    const timer = setTimeout(() => {
+      startAnimation()
+    }, 1000)
+    
+    return () => clearTimeout(timer)
+  }, [])
+
+  // Перезапуск анимации при появлении в поле зрения
+  React.useEffect(() => {
+    if (isVisible && !isAnimating) {
+      startAnimation()
+    }
+  }, [isVisible])
+
+  React.useEffect(() => {
+    if (currentIndex < text.length && isAnimating) {
+      const timeout = setTimeout(() => {
+        setDisplayText(prev => prev + text[currentIndex])
+        setCurrentIndex(prev => prev + 1)
+      }, 100 + delay)
+      
+      return () => clearTimeout(timeout)
+    } else if (currentIndex >= text.length && isAnimating) {
+      setIsAnimating(false)
+    }
+  }, [currentIndex, text, delay, isAnimating])
+
+  return (
+    <span className="inline-block text-accent">
+      {displayText}
+      <span className="text-accent">|</span>
+    </span>
+  )
+}
+
 export default function App(){
   React.useEffect(() => {
     // Внедряем стили для скрытия scrollbar
@@ -122,8 +250,19 @@ export default function App(){
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center">
               <h1 className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-8 text-gray-900">
-                <span className="block">Launch Global.</span>
-                <span className="block">Build in AI.</span>
+                <div className="block mb-2">
+                  Launch Global.
+                </div>
+                <div className="block">
+                  {(() => {
+                    const [ref, isVisible] = useIntersectionObserver()
+                    return (
+                      <div ref={ref}>
+                        <TypewriterText text="Build in AI." isVisible={isVisible} />
+                      </div>
+                    )
+                  })()}
+                </div>
               </h1>
               
               <p className="text-base sm:text-lg md:text-xl text-gray-600 mb-10 sm:mb-12 max-w-3xl mx-auto leading-relaxed px-4">
@@ -131,7 +270,7 @@ export default function App(){
               </p>
               
                               <div className="flex flex-col sm:flex-row gap-6 justify-center mb-12">
-                <a href="#contact" className="w-full sm:w-auto text-center px-6 sm:px-8 md:px-10 py-3 sm:py-4 bg-accent text-white font-semibold hover:bg-accent/90 transition-all duration-300 hover:shadow-lg text-base sm:text-lg">Apply now</a>
+                <a href="#contact" className="w-full sm:w-auto text-center px-6 sm:px-8 md:px-10 py-3 sm:py-4 bg-accent text-white font-semibold hover:bg-accent/90 transition-all duration-300 text-base sm:text-lg">Apply now</a>
               </div>
 
               <div className="bg-white/80 backdrop-blur-sm p-8 mb-12">
@@ -159,65 +298,98 @@ export default function App(){
           <div className="max-w-4xl mx-auto">
             <h2 className="text-2xl font-bold mb-8 text-gray-900 text-center">What founders get in 90 days</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-              {sprints.map((s) => (
-                <div key={s.title} className="text-center px-4">
-                  <h3 className="font-semibold text-lg mb-3 text-gray-900">{s.title}</h3>
-                  <p className="text-gray-600 leading-relaxed text-sm sm:text-base">{s.desc}</p>
-                </div>
-              ))}
+              {sprints.map((s, index) => {
+                const [ref, isVisible] = useIntersectionObserver()
+                return (
+                  <div 
+                    key={s.title} 
+                    ref={ref}
+                    className={`text-center px-4 fade-in-scale ${isVisible ? 'visible' : ''}`}
+                    style={{ transitionDelay: `${index * 200}ms` }}
+                  >
+                    <h3 className="font-semibold text-lg mb-3 text-gray-900">{s.title}</h3>
+                    <p className="text-gray-600 leading-relaxed text-sm sm:text-base">{s.desc}</p>
+                  </div>
+                )
+              })}
             </div>
           </div>
         </div>
 
         <section id="about" className="container mx-auto px-4 mt-12 sm:mt-16 scroll-mt-24">
-          <h2 className="text-2xl font-bold mb-8 text-center">About SAISA</h2>
-          <p className="text-muted max-w-4xl mx-auto text-center leading-relaxed">
-            We turn research into revenue with you: relocate, incorporate, build and ship, talk to customers, and fundraise—co-building AI companies from Eastern Europe and Central Asia for global markets. We partner with founders from the region to co-build global-first AI startups with clean relocation and incorporation, focused product and GTM sprints, customer pipelines, and fundraising support that compound into traction quickly.
-          </p>
+          <div className="max-w-4xl mx-auto">
+            {(() => {
+              const [ref, isVisible] = useIntersectionObserver()
+              return (
+                <div ref={ref} className={`fade-in-up ${isVisible ? 'visible' : ''}`}>
+                  <h2 className="text-2xl font-bold mb-8 text-center">About SAISA</h2>
+                  <p className="text-muted text-center leading-relaxed">
+                    We turn research into revenue with you: relocate, incorporate, build and ship, talk to customers, and fundraise—co-building AI companies from Eastern Europe and Central Asia for global markets. We partner with founders from the region to co-build global-first AI startups with clean relocation and incorporation, focused product and GTM sprints, customer pipelines, and fundraising support that compound into traction quickly.
+                  </p>
+                </div>
+              )
+            })()}
+          </div>
         </section>
 
         <section id="faq" className="container mx-auto px-4 mt-12 sm:mt-16 scroll-mt-24">
-          <h2 className="text-2xl font-bold mb-8 text-center">FAQ</h2>
-          <div className="max-w-4xl mx-auto space-y-4 px-4">
-            {faqData.map((item, index) => (
-              <FAQItem key={index} question={item.question} answer={item.answer} />
-            ))}
+          <div className="max-w-4xl mx-auto">
+            {(() => {
+              const [ref, isVisible] = useIntersectionObserver()
+              return (
+                <div ref={ref} className={`fade-in-up ${isVisible ? 'visible' : ''}`}>
+                  <h2 className="text-2xl font-bold mb-8 text-center">FAQ</h2>
+                  <div className="space-y-4 px-4">
+                    {faqData.map((item, index) => (
+                      <FAQItem key={index} question={item.question} answer={item.answer} />
+                    ))}
+                  </div>
+                </div>
+              )
+            })()}
           </div>
         </section>
 
         <section id="contact" className="container mx-auto px-4 mt-12 sm:mt-16 mb-16 sm:mb-24 scroll-mt-24">
           <div className="text-center max-w-4xl mx-auto">
-            <h2 className="text-2xl font-bold mb-8 text-gray-900">
-              Seize the opportunity to lead the AI revolution
-            </h2>
-            
-            <div className="space-y-6">
-              <div className="text-center">
-                <h3 className="text-xl font-semibold mb-3 text-gray-800">I have a project</h3>
-                <p className="text-gray-600 mb-4">Ready to scale? Fill out our detailed application form.</p>
-                <a
-                  href={GOOGLE_FORM_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-block bg-accent text-white font-semibold px-8 py-3 hover:bg-accent/90 transition-colors duration-200"
-                >
-                  Apply Now →
-                </a>
-              </div>
+            {(() => {
+              const [ref, isVisible] = useIntersectionObserver()
+              return (
+                <div ref={ref} className={`fade-in-up ${isVisible ? 'visible' : ''}`}>
+                  <h2 className="text-2xl font-bold mb-8 text-gray-900">
+                    Seize the opportunity to lead the AI revolution
+                  </h2>
+                  
+                  <div className="space-y-6">
+                    <div className="text-center">
+                      <h3 className="text-xl font-semibold mb-3 text-gray-800">I have a project</h3>
+                      <p className="text-gray-600 mb-4">Ready to scale? Fill out our detailed application form.</p>
+                      <a
+                        href={GOOGLE_FORM_URL}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-block bg-accent text-white font-semibold px-8 py-3 hover:bg-accent/90 transition-colors duration-200"
+                      >
+                        Apply Now →
+                      </a>
+                    </div>
 
-              <div className="text-center">
-                <h3 className="text-xl font-semibold mb-3 text-gray-800">I have an idea / concept</h3>
-                <p className="text-gray-600 mb-4">Early stage? Start with our quick concept form.</p>
-                <a 
-                  href="https://docs.google.com/forms/d/e/1FAIpQLSfP2WGj-JnVhgKYG6vPBdDH0BaXrq5dIzJoiVckDbPcftHujQ/viewform" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="inline-block bg-accent text-white font-semibold px-8 py-3 hover:bg-accent/90 transition-colors duration-200"
-                >
-                  Submit Concept →
-                </a>
-              </div>
-            </div>
+                    <div className="text-center">
+                      <h3 className="text-xl font-semibold mb-3 text-gray-800">I have an idea / concept</h3>
+                      <p className="text-gray-600 mb-4">Early stage? Start with our quick concept form.</p>
+                      <a 
+                        href="https://docs.google.com/forms/d/e/1FAIpQLSfP2WGj-JnVhgKYG6vPBdDH0BaXrq5dIzJoiVckDbPcftHujQ/viewform" 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className="inline-block bg-accent text-white font-semibold px-8 py-3 hover:bg-accent/90 transition-colors duration-200"
+                      >
+                        Submit Concept →
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              )
+            })()}
           </div>
         </section>
       </main>
