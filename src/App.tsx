@@ -141,6 +141,29 @@ const GOOGLE_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSeCWYiYOMafUpv
 
 const useIntersectionObserver = (options = {}) => {
   const [isVisible, setIsVisible] = React.useState(false)
+  const [hasBeenVisible, setHasBeenVisible] = React.useState(false)
+  const elementRef = React.useRef<HTMLDivElement>(null)
+
+  React.useEffect(() => {
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting && !hasBeenVisible) {
+        setIsVisible(true)
+        setHasBeenVisible(true)
+      }
+    }, { threshold: 0.1, ...options })
+
+    if (elementRef.current) {
+      observer.observe(elementRef.current)
+    }
+
+    return () => observer.disconnect()
+  }, [options, hasBeenVisible])
+
+  return [elementRef, isVisible] as const
+}
+
+const useIntersectionObserverForTypewriter = (options = {}) => {
+  const [isVisible, setIsVisible] = React.useState(false)
   const elementRef = React.useRef<HTMLDivElement>(null)
 
   React.useEffect(() => {
@@ -259,7 +282,7 @@ export default function App(){
                 </div>
                 <div className="block">
                   {(() => {
-                    const [ref, isVisible] = useIntersectionObserver()
+                    const [ref, isVisible] = useIntersectionObserverForTypewriter()
                     return (
                       <div ref={ref}>
                         <TypewriterText text="Build in AI." isVisible={isVisible} />
