@@ -487,11 +487,11 @@ export default function App(){
                   </div>
                   <div className="text-center group">
                     <div className="text-4xl font-bold text-accent mb-2 group-hover:scale-110 transition-transform duration-300">Nov 1, 2025</div>
-                    <div className="text-gray-600 font-medium">Next cohort</div>
+                    <div className="text-gray-600 font-medium">Next Cohort</div>
                   </div>
                   <div className="text-center group">
-                    <div className="text-4xl font-bold text-accent mb-2 group-hover:scale-110 transition-transform duration-300">Global</div>
-                    <div className="text-gray-600 font-medium">Market Access</div>
+                    <div className="text-4xl font-bold text-accent mb-2 group-hover:scale-110 transition-transform duration-300">Backed by</div>
+                    <div className="text-gray-600 font-medium">NextSpark Ventures</div>
                   </div>
                 </div>
               </div>
