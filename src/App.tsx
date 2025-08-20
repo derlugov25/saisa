@@ -266,95 +266,18 @@ export default function App(){
           </div>
 
           <nav className="hidden md:block">
-            <div className="relative">
-              <button 
-                onClick={toggleMenu}
-                className="group relative flex items-center gap-3 px-4 py-3 bg-accent/10 hover:bg-accent/20 rounded-xl transition-all duration-300 hover:scale-105 border border-accent/20 hover:border-accent/30"
-              >
-                <div className="flex flex-col gap-1">
-                  <div className={`w-5 h-0.5 bg-accent transition-all duration-300 ${isMenuOpen ? 'rotate-45 translate-y-1.5' : ''}`}></div>
-                  <div className={`w-5 h-0.5 bg-accent transition-all duration-300 ${isMenuOpen ? 'opacity-0' : ''}`}></div>
-                  <div className={`w-5 h-0.5 bg-accent transition-all duration-300 ${isMenuOpen ? '-rotate-45 -translate-y-1.5' : ''}`}></div>
-                </div>
-                <span className="text-accent font-semibold">Menu</span>
-                <svg className={`w-4 h-4 text-accent transition-transform duration-300 ${isMenuOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                </svg>
-              </button>
+            <div className="flex items-center gap-8">
+              <a href="#about" className="text-gray-700 hover:text-accent font-medium transition-colors duration-300">
+                About
+              </a>
               
-              {/* Dropdown Menu */}
-              <div className={`absolute top-full right-0 mt-3 w-80 bg-white/95 backdrop-blur-md rounded-2xl shadow-2xl border border-white/20 transition-all duration-300 transform z-50 ${isMenuOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible translate-y-2'}`}>
-                <div className="p-6">
-                  <div className="flex items-center justify-between mb-6">
-                    <div className="flex items-center gap-3">
-                      <div className="w-12 h-12 bg-gradient-to-br from-accent to-accent/80 rounded-2xl flex items-center justify-center shadow-lg">
-                        <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                        </svg>
-                      </div>
-                      <div>
-                        <h3 className="font-bold text-gray-900 text-lg">SAISA Menu</h3>
-                        <p className="text-sm text-gray-600">AI Startup Accelerator</p>
-                      </div>
-                    </div>
-                    <button 
-                      onClick={closeMenu}
-                      className="w-8 h-8 bg-gray-100 hover:bg-gray-200 rounded-lg flex items-center justify-center transition-colors duration-200 group"
-                    >
-                      <svg className="w-4 h-4 text-gray-600 group-hover:text-gray-800 transition-colors duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                      </svg>
-                    </button>
-                  </div>
-                  
-                  <div className="space-y-3">
-                    <a href="#about" onClick={closeMenu} className="group flex items-center gap-4 p-4 rounded-xl hover:bg-accent/5 transition-all duration-300 hover:scale-105 border border-transparent hover:border-accent/20">
-                      <div className="w-10 h-10 bg-accent/10 rounded-xl flex items-center justify-center group-hover:bg-accent group-hover:scale-110 transition-all duration-300">
-                        <svg className="w-5 h-5 text-accent group-hover:text-white transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
-                      </div>
-                      <div>
-                        <h4 className="font-semibold text-gray-900 group-hover:text-accent transition-colors duration-300">About</h4>
-                        <p className="text-sm text-gray-600">Learn about SAISA</p>
-                      </div>
-                      <svg className="w-4 h-4 text-gray-400 group-hover:text-accent transition-colors duration-300 ml-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                      </svg>
-                    </a>
-                    
-                    <a href="#faq" onClick={closeMenu} className="group flex items-center gap-4 p-4 rounded-xl hover:bg-accent/5 transition-all duration-300 hover:scale-105 border border-transparent hover:border-accent/20">
-                      <div className="w-10 h-10 bg-accent/10 rounded-xl flex items-center justify-center group-hover:bg-accent group-hover:scale-110 transition-all duration-300">
-                        <svg className="w-5 h-5 text-accent group-hover:text-white transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-                        </svg>
-                      </div>
-                      <div>
-                        <h4 className="font-semibold text-gray-900 group-hover:text-accent transition-colors duration-300">Approach</h4>
-                        <p className="text-sm text-gray-600">Our 90-day program</p>
-                      </div>
-                      <svg className="w-4 h-4 text-gray-400 group-hover:text-accent transition-colors duration-300 ml-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                      </svg>
-                    </a>
-                    
-                    <a href="#contact" onClick={closeMenu} className="group flex items-center gap-4 p-4 rounded-xl hover:bg-accent/5 transition-all duration-300 hover:scale-105 border border-transparent hover:border-accent/20">
-                      <div className="w-10 h-10 bg-accent/10 rounded-xl flex items-center justify-center group-hover:bg-accent group-hover:scale-110 transition-all duration-300">
-                        <svg className="w-5 h-5 text-accent group-hover:text-white transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                        </svg>
-                      </div>
-                      <div>
-                        <h4 className="font-semibold text-gray-900 group-hover:text-accent transition-colors duration-300">Contact</h4>
-                        <p className="text-sm text-gray-600">Get in touch</p>
-                      </div>
-                      <svg className="w-4 h-4 text-gray-400 group-hover:text-accent transition-colors duration-300 ml-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                      </svg>
-                    </a>
-                  </div>
-                </div>
-              </div>
+              <a href="#faq" className="text-gray-700 hover:text-accent font-medium transition-colors duration-300">
+                Approach
+              </a>
+              
+              <a href="#contact" className="text-gray-700 hover:text-accent font-medium transition-colors duration-300">
+                Contact
+              </a>
             </div>
           </nav>
 
