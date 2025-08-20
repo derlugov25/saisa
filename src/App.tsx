@@ -573,7 +573,7 @@ export default function App(){
             <div className="text-center">
               <h4 className="font-semibold text-gray-800 mb-4">Contact</h4>
               <p className="text-sm text-gray-600 mb-2">
-                <a href="mailto:hello@saisa.ai" className="text-accent hover:text-accent/80 transition-colors duration-300">hello@saisa.ai</a>
+                <a href="mailto:contact@saisa.tech" className="text-accent hover:text-accent/80 transition-colors duration-300">contact@saisa.tech</a>
               </p>
               <p className="text-sm text-gray-600">Ready to launch global?</p>
             </div>
